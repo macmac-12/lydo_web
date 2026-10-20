@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-md-items-center gap-3 mb-4">
+    <h2 class="fs-5 fs-md-4 mb-0">Registered Youth Organizations (RYO)</h2>
+    <input type="text" id="orgSearch" class="form-control w-100 w-md-25" placeholder="Search organization...">
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3" id="orgGrid">
+    {% for org in orgs %}
+    <div class="col org-card">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <span class="badge bg-info mb-2 d-inline-block">{{ org.category }}</span>
+                <h6 class="card-title fw-bold">{{ org.name }}</h6>
+                <p class="card-text small">{{ org.mission }}</p>
+                <hr class="my-2">
+                <p class="mb-1 small"><strong>President:</strong> {{ org.president or '—' }}</p>
+                <p class="mb-1 small"><strong>Vice Pres:</strong> {{ org.vice_president or '—' }}</p>
+                <p class="mb-1 small"><strong>Secretary:</strong> {{ org.secretary or '—' }}</p>
+                <p class="mb-0 small"><strong>Members:</strong> {{ org.members or '—' }}</p>
+                {% if current_user.is_authenticated and current_user.is_admin %}
+                <div class="d-flex justify-content-center gap-2 mt-3">
+                    <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('main.edit_organization', org_id=org.id) }}">Edit</a>
+                    <form method="post" action="{{ url_for('main.delete_organization', org_id=org.id) }}" style="display:inline" onsubmit="return confirm('Delete this organization?');">
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not orgs %}
+<div class="text-center py-5">
+    <p class="text-muted">No organizations added yet.</p>
+</div>
+{% endif %}
+
+<script>
+    document.getElementById('orgSearch').addEventListener('keyup', function() {
+        let filter = this.value.toLowerCase();
+        let cards = document.querySelectorAll('.org-card');
+        cards.forEach(card => {
+            let name = card.querySelector('.card-title').innerText.toLowerCase();
+            card.style.display = name.includes(filter) ? '' : 'none';
+        });
+    });
+</script>
+{% endblock %}

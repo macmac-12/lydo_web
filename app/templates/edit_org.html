@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-sm-11 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="card-title mb-3">Edit Organization</h4>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Organization Name</label>
+                        <input class="form-control" name="name" value="{{ org.name }}" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" name="category">
+                            <option value="Religious" {% if org.category=='Religious' %}selected{% endif %}>Religious</option>
+                            <option value="Civic" {% if org.category=='Civic' %}selected{% endif %}>Civic</option>
+                            <option value="Academic" {% if org.category=='Academic' %}selected{% endif %}>Academic</option>
+                            <option value="Sports" {% if org.category=='Sports' %}selected{% endif %}>Sports</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mission</label>
+                        <textarea class="form-control" name="mission">{{ org.mission or '' }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">President</label>
+                        <input class="form-control" name="president" value="{{ org.president or '' }}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vice President</label>
+                        <input class="form-control" name="vice_president" value="{{ org.vice_president or '' }}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Secretary</label>
+                        <input class="form-control" name="secretary" value="{{ org.secretary or '' }}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Members (comma separated)</label>
+                        <textarea class="form-control" name="members">{{ org.members or '' }}</textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

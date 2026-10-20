@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card p-3 p-md-4 shadow-sm">
+            <h3 class="fs-5 fs-md-4 mb-3">KK Youth Profiling</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                </div>
+                <div class="mb-3">
+                    <select name="barangay" class="form-select">
+                        <option>Bagoladio</option>
+                        <option>Bagumbayan</option>
+                        <option>Balaogan</option>
+                        <option>Caorasan</option>
+                        <option>Casugad</option>
+                        <option>Causip</option>
+                        <option>Fabrica</option>
+                        <option>Inoyonan</option>
+                        <option>Itangon</option>
+                        <option>Kinalabasahan</option>
+                        <option>La Purisima</option>
+                        <option>La Victoria</option>
+                        <option>Lanipga</option>
+                        <option>Lubgan</option>
+                        <option>Ombao Heights</option>
+                        <option>Ombao Polpog</option>
+                        <option>Palsong</option>
+                        <option>Panoypoyan</option>
+                        <option>Pawili</option>
+                        <option>Sagrada Familia</option>
+                        <option>Salvacion</option>
+                        <option>San Agustin</option>
+                        <option>San Francisco</option>
+                        <option>San Isidro</option>
+                        <option>San Jose</option>
+                        <option>San Miguel</option>
+                        <option>San Ramon</option>
+                        <option>San Roque (Poblacion)</option>
+                        <option>San Roque (Heights)</option>
+                        <option>Santa Elena</option>
+                        <option>Santo Domingo</option>
+                        <option>Santo Niño</option>
+                        <option>Taisan</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="education" class="form-select">
+                        <option value="">Select Education Level</option>
+                        <option>Elementary</option>
+                        <option>High School</option>
+                        <option>College</option>
+                        <option>Vocational</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="employment" class="form-select">
+                        <option value="">Select Employment Status</option>
+                        <option>Employed</option>
+                        <option>Unemployed</option>
+                        <option>Self-Employed</option>
+                        <option>Student</option>
+                    </select>
+                </div>
+                <div class="alert alert-info small mb-3">
+                    <strong>Data Privacy Notice:</strong> By submitting this form, you agree that LYDO will collect and process your information in compliance with the Data Privacy Act of 2012 for monitoring and development purposes.
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" required id="privacy">
+                    <label class="form-check-label" for="privacy">I understand and agree.</label>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Register Profile</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

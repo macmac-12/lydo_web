@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm p-3 p-md-4">
+            <h3 class="fs-5 fs-md-4 mb-3">Add Registered Youth Organization</h3>
+            <form method="post">
+                <div class="mb-3"><input type="text" name="name" class="form-control" placeholder="Organization Name" required></div>
+                <div class="mb-3">
+                    <select name="category" class="form-select">
+                        <option>Religious</option>
+                        <option>Civic</option>
+                        <option>Academic</option>
+                        <option>Sports</option>
+                    </select>
+                </div>
+                <div class="mb-3"><textarea name="mission" class="form-control" placeholder="Mission" rows="3"></textarea></div>
+                <div class="mb-3"><input type="text" name="president" class="form-control" placeholder="President"></div>
+                <div class="mb-3"><input type="text" name="vice_president" class="form-control" placeholder="Vice President"></div>
+                <div class="mb-3"><input type="text" name="secretary" class="form-control" placeholder="Secretary"></div>
+                <div class="mb-3"><textarea name="members" class="form-control" placeholder="Members (comma separated)" rows="3"></textarea></div>
+                <button type="submit" class="btn btn-success w-100">Add Organization</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

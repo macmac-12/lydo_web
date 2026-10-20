@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block hero %}
+<div class="hero-section text-center text-white py-5">
+    <div class="container-fluid">
+        <h1 class="display-4 display-md-3 fw-bold mb-3">Welcome to LYDO Bula</h1>
+        <p class="lead fs-5 fs-md-4 mb-4">Empowering youth through comprehensive development programs, monitoring, and organizational support in Bula</p>
+        <a href="{{ url_for('main.profiling') }}" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <h2 class="text-center mb-5 fw-bold fs-3">Our Services</h2>
+    
+    <div class="row g-4">
+        <!-- Youth Organization Directory -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="{{ url_for('main.ryo_directory') }}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm border-0 text-center p-4" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0.125rem 0.25rem rgba(0,0,0,0.075)';">
+                    <div class="mb-3 text-primary fs-1"><i class="fas fa-users"></i></div>
+                    <h5 class="card-title mb-2 text-dark">Youth Organization Directory</h5>
+                    <p class="card-text text-muted small">Comprehensive database of youth organizations in Bula</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- KK Profiling -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="{{ url_for('main.profiling') }}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm border-0 text-center p-4" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0.125rem 0.25rem rgba(0,0,0,0.075)';">
+                    <div class="mb-3 text-primary fs-1"><i class="fas fa-file-alt"></i></div>
+                    <h5 class="card-title mb-2 text-dark">KK Profiling</h5>
+                    <p class="card-text text-muted small">Detailed profiling system for Katipunan ng Kabataan members</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- KK Monitoring -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="{{ url_for('main.dashboard') }}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm border-0 text-center p-4" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0.125rem 0.25rem rgba(0,0,0,0.075)';">
+                    <div class="mb-3 text-primary fs-1"><i class="fas fa-chart-bar"></i></div>
+                    <h5 class="card-title mb-2 text-dark">KK Monitoring</h5>
+                    <p class="card-text text-muted small">Track and monitor KK activities and progress</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- SK Chairperson -->
+        <div class="col-12 col-md-6 col-lg-3">
+            <a href="{{ url_for('main.meet_leaders') }}" class="text-decoration-none">
+                <div class="card h-100 shadow-sm border-0 text-center p-4" style="cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0.125rem 0.25rem rgba(0,0,0,0.075)';">
+                    <div class="mb-3 text-primary fs-1"><i class="fas fa-user-tie"></i></div>
+                    <h5 class="card-title mb-2 text-dark">SK Chairperson</h5>
+                    <p class="card-text text-muted small">Information about Sangguniang Kabataan leaders</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

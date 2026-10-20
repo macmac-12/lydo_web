@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-sm-11 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="card-title mb-4">LYDO Organizational Structure</h3>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">LYDO Head</label>
+                        <input class="form-control" name="lydo_head" value="{{ structure.lydo_head or '' }}" placeholder="Name of LYDO Head" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Admin Staff (comma separated)</label>
+                        <textarea class="form-control" name="admin_staff" rows="3" placeholder="Names of Admin Staff">{{ structure.admin_staff or '' }}</textarea>
+                        <small class="form-text text-muted">Enter multiple admin staff names separated by commas</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">LYDC Members (comma separated)</label>
+                        <textarea class="form-control" name="lydc_members" rows="4" placeholder="Names of LYDC Members">{{ structure.lydc_members or '' }}</textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+
+                {% if structure.lydo_head or structure.admin_staff or structure.lydc_members %}
+                <hr class="my-4">
+                <h5>Current LYDO Structure</h5>
+                <div class="text-center">
+                    <div class="p-3 mb-3 border rounded bg-light">
+                        <strong>LYDO Head</strong><br>{{ structure.lydo_head or '—' }}
+                    </div>
+                    {% if structure.admin_staff %}
+                    <div class="p-3 mb-3 border rounded">
+                        <strong>Admin Staff</strong><br>
+                        {% set admin_list = structure.admin_staff.split(',') %}
+                        {% for admin in admin_list %}
+                            {% if admin.strip() %}
+                                {{ admin.strip() }}<br>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        <a href="{{ url_for('main.lydo_structure') }}" class="btn btn-sm btn-outline-primary">+ Add Admin Staff</a>
+                    </div>
+                    {% endif %}
+                    <div class="p-3 border rounded bg-light">
+                        <strong>LYDC Members</strong><br>
+                        {% if structure.lydc_members %}
+                            {{ structure.lydc_members.replace(',', '<br>') | safe }}
+                        {% else %}
+                            —
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="card shadow-sm mt-4">
+            <div class="card-body p-4">
+                <h3 class="card-title mb-4">LYDC Organization Structure</h3>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">LYDC Chairperson</label>
+                        <input class="form-control" name="lydc_chairperson" placeholder="Name of LYDC Chairperson" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">LYDC Vice Chairperson</label>
+                        <input class="form-control" name="lydc_vice_chairperson" placeholder="Name of LYDC Vice Chairperson" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">LYDC Secretary</label>
+                        <input class="form-control" name="lydc_secretary" placeholder="Name of LYDC Secretary" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">LYDC Treasurer</label>
+                        <input class="form-control" name="lydc_treasurer" placeholder="Name of LYDC Treasurer" />
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+
+                <hr class="my-4">
+                <h5>Current LYDC Structure</h5>
+                <div class="text-center">
+                    <div class="p-3 mb-3 border rounded bg-light">
+                        <strong>LYDC Chairperson</strong><br>—
+                    </div>
+                    <div class="p-3 mb-3 border rounded">
+                        <strong>LYDC Vice Chairperson</strong><br>—
+                    </div>
+                    <div class="p-3 mb-3 border rounded">
+                        <strong>LYDC Secretary</strong><br>—
+                    </div>
+                    <div class="p-3 border rounded bg-light">
+                        <strong>LYDC Treasurer</strong><br>—
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

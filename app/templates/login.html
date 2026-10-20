@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .login-container {
+        min-height: calc(100vh - 60px);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+    }
+</style>
+
+<div class="login-container">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+        <div class="card shadow-lg border-0" style="border-radius: 12px;">
+            <div class="card-body p-5">
+                <!-- Logo -->
+                <div class="text-center mb-4">
+                    <div style="width: 60px; height: 60px; background: #e8eef7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-shield-alt text-primary" style="font-size: 28px;"></i>
+                    </div>
+                </div>
+
+                <!-- Header -->
+                <h3 class="text-center mb-1 fw-bold">LYDO Bula</h3>
+                <p class="text-center text-muted small mb-4">Login to your account</p>
+
+                <!-- Form -->
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label small fw-500">Username</label>
+                        <input class="form-control" name="username" placeholder="Enter your username" required />
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-500">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter your password" required />
+                    </div>
+                    <button class="btn btn-primary w-100 mb-3" type="submit">
+                        <i class="fas fa-sign-in-alt me-2"></i> Login
+                    </button>
+                </form>
+
+                <!-- Back to Home -->
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('main.index') }}" class="text-primary text-decoration-none small">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
